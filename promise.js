@@ -1,34 +1,22 @@
-const task = new Promise(() => {
-  var array = new Array(50);
-//declaring an array of 50 numbers.
-//for loop is used to get all the values from 1 to 50
+let promise = new Promise(function(resolve, reject) {
+  
 
-for (var i=2 ; i<=array.length-1; i++) {
-    if((i%2===0) || (i%3===0))
-        continue;
-    console.log(i+",");
-}
+      const readline = require('readline');
 
-})
-//readline function is used to get the input from the user.
-const readline = require('readline').createInterface({
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-readline.question('enter any prime number?', number => {
 
-//if conditionals are used to check the number(which is the input).  
-
-   if(number %4 == 0) 
-   {
-   console.log('success!');
-   }
-   
-   else
-   {
-   console.log('Better luck Next time !');
-   }
-
-  readline.close();
+rl.question('enter millisecond ', (answer) => {
+  // TODO: Log the answer in a database
+  if(answer %7 == 0){
+  console.log("success");
+  }
+  else{
+    console.log("better luck next time!")
+  }
+  rl.close();
 });
-//readline.close is the method to end the readline function.
+ });     
+      
