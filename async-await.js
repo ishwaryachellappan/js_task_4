@@ -1,9 +1,17 @@
 
-//defining promises with resolve and reject function.
-let promise = new Promise(function(resolve, reject) {
+/const randomNumber1 = new Promise((resolve, reject) => {
 
-//math.random function is used to generate any two values.
-//console.log function is used to print the random numbers.
-console.log(Math.random( ));
-console.log(Math.random( ));
-});
+// Math class is used to generate the random number.
+	resolve(Math.random( ))
+})
+const randomNumber2 = new Promise((resolve, reject) => {
+	resolve(Math.random( ))
+})
+Promise.all([randomNumber1, randomNumber2])
+
+
+.then((messages) => {
+	console.log(messages)
+})
+
+ 

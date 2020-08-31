@@ -1,22 +1,29 @@
-let promise = new Promise(function(resolve, reject) {
-  
 
-      const readline = require('readline');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+let p = new Promise((resolve, reject) => {
 
-rl.question('enter millisecond ', (answer) => {
-  // TODO: Log the answer in a database
-  if(answer %7 == 0){
-  console.log("success");
-  }
-  else{
-    console.log("better luck next time!")
-  }
-  rl.close();
-});
- });     
-      
+
+const primeNumber = [2,3,5,7,11,13];
+
+var today = new Date();
+var milliseconds = today.getUTCMilliseconds();
+
+if ( primeNumber[4] % milliseconds ==0)
+{
+	resolve(' Sucess !')
+}
+else
+ {
+	reject(' Better luck next time !')
+}
+})
+
+
+p.then( (message) => {
+console.log(message)
+})
+
+
+.catch( (message) => {
+console.log(message)
+})
