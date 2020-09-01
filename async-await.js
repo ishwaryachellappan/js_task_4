@@ -10,8 +10,11 @@ Promise.all([randomNumber1, randomNumber2])
 	console.log(messages)
 })
 
-if((randomNumber1+randomNumber2) <= 0) {
-        console.log("User Logged in successfully!");
-    } else  {
-        console.log("Oops!try again");
-    }
+try {
+   let numbers = randomNumber1+randomNumber2;
+   if (numbers => 0 ){
+     throw new Error("positive")
+   }
+} catch(e) {
+   alert(e.message)
+} 
