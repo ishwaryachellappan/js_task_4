@@ -9,12 +9,18 @@ Promise.all([randomNumber1, randomNumber2])
 .then((messages) => {
 	console.log(messages)
 })
-
-try {
+async function doIt() {
+  try {
    let numbers = randomNumber1+randomNumber2;
    if (numbers => 0 ){
      throw new Error("positive")
    }
+   else{
+     throw new Error("negative")
+   }
 } catch(e) {
    alert(e.message)
 } 
+}
+
+doIt();
