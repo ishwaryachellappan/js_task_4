@@ -1,5 +1,7 @@
 const randomNumber1 = new Promise((resolve, reject) => {
 
+//math.random function is used to generate random numbers
+
 	resolve(Math.random( ))
 })
 const randomNumber2 = new Promise((resolve, reject) => {
@@ -9,6 +11,8 @@ Promise.all([randomNumber1, randomNumber2])
 .then((messages) => {
 	console.log(messages)
 })
+//async await method
+
 async function doIt() {
   try {
    let numbers = randomNumber1+randomNumber2;
@@ -22,5 +26,5 @@ async function doIt() {
    console.log(e.message)
 } 
 }
-
+//finally calling the main method
 doIt();
