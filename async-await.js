@@ -19,7 +19,7 @@ async function doIt() {
      throw new Error("negative")
    }
 } catch(e) {
-   alert(e.message)
+   console.log(e.message)
 } 
 }
 
