@@ -1,30 +1,28 @@
-const randomNumber1 = new Promise((resolve, reject) => {
-
-//math.random function is used to generate random numbers
-
-	resolve(Math.random( ))
-})
-const randomNumber2 = new Promise((resolve, reject) => {
-	resolve(Math.random( ))
-})
-Promise.all([randomNumber1, randomNumber2])
-.then((messages) => {
-	console.log(messages)
-})
-//async await method
-
-async function doIt() {
-  try {
-   let numbers = randomNumber1+randomNumber2;
-   if (numbers => 0 ){
-     throw new Error("positive")
-   }
-   else{
-     throw new Error("negative")
-   }
-} catch(e) {
-   console.log(e.message)
-} 
+function generateRandom() {
+  return new Promise((res, rej) => {
+    let randomNumber = Math.random() * (1000 - -1000) + -1000;
+    res(randomNumber);
+  });
 }
-//finally calling the main method
-doIt();
+function compareRandom(firstRandomNumber, secondRandomNumber) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      if ((firstRandomNumber + secondRandomNumber) > 0) {
+        res(true);
+      } else {
+        rej(false);
+      }
+    }, 0);
+  });
+}
+async function main() {
+  let firstRandomNumber = await generateRandom();
+  let secondRandomNumber = await generateRandom();
+  try {
+    let result = await compareRandom(firstRandomNumber, secondRandomNumber);
+    console.log("User Logged in successfully!");
+  } catch (e) {
+    console.log("Oops! try again!");
+  }
+}
+main();
